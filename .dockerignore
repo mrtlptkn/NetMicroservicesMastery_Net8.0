@@ -1,0 +1,10 @@
+# Host üzerindeki derleme çıktıları imaja kopyalanmasın (COPY . . adımı)
+**/bin/
+**/obj/
+**/out/
+.vs/
+.idea/
+.vscode/
+*.user
+*.rar
+**/*.log
