@@ -1,0 +1,1336 @@
+{
+  "info": {
+    "_postman_id": "a026ab99-186d-49fe-9c42-bc23fe1d6243",
+    "name": ".Net Microservices Mastery",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "49800903",
+    "_collection_link": "https://go.postman.co/collection/49800903-a026ab99-186d-49fe-9c42-bc23fe1d6243?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Module 1",
+      "item": [
+        {
+          "name": "RabbitMQ Management UI",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "username",
+                  "value": "neominal",
+                  "type": "text",
+                  "uuid": "7407cfba-98d4-4034-a197-571a845271f4"
+                },
+                {
+                  "key": "password",
+                  "value": "neominal_pass",
+                  "type": "text",
+                  "uuid": "0e3b6c7b-e160-452d-b737-43ef7e41f486"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://localhost:15672",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "15672"
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "RedisInsight",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5540",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5540"
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Kafka UI",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8082",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8082"
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Prometheus",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:9090",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9090"
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Grafana",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "username",
+                  "value": "admin",
+                  "type": "text",
+                  "uuid": "582cb51c-2d90-4d7b-a205-da40e0e94362"
+                },
+                {
+                  "key": "password",
+                  "value": "Pass!2025-",
+                  "type": "text",
+                  "uuid": "518e109d-73c9-487f-8d30-1c8acf3ee6a4"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://localhost:3000",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000"
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Seq",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "username",
+                  "value": "admin",
+                  "type": "text",
+                  "uuid": "43f852e4-50f3-4d5e-940a-d64bc62f0093"
+                },
+                {
+                  "key": "password",
+                  "value": "Pass!2025-",
+                  "type": "text",
+                  "uuid": "107d8854-7ed1-4e96-a853-729c85060aea"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://localhost:8081",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8081"
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Jaeger",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:16686",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "16686"
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Dbevaer",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "username",
+                  "value": "neominal",
+                  "type": "text",
+                  "uuid": "e5edb95f-6f30-452d-99e1-6d6212189345"
+                },
+                {
+                  "key": "password",
+                  "value": "neominal_pass",
+                  "type": "text",
+                  "uuid": "5e37f77b-8c28-4ba8-a036-76707af00103"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://localhost:15432",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "15432"
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Keycloak",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "username",
+                  "value": "admin",
+                  "type": "text",
+                  "uuid": "f900d5aa-a9c0-431d-af72-f33a7bde891d"
+                },
+                {
+                  "key": "password",
+                  "value": "admin",
+                  "type": "text",
+                  "uuid": "ab2ccddc-1bc8-41f9-9678-44eedf1fee19"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://localhost:8180",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8180"
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Consul UI",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8500/ui",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8500",
+              "path": [
+                "ui"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Ngnix",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080"
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Vault",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "token",
+                  "value": "root",
+                  "type": "text",
+                  "uuid": "ff0d430c-85ac-4e9a-90d8-dae1199c3935"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://localhost:8200/ui/vault/auth?with=token",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8200",
+              "path": [
+                "ui",
+                "vault",
+                "auth"
+              ],
+              "query": [
+                {
+                  "key": "with",
+                  "value": "token"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Module 2",
+      "item": [
+        {
+          "name": "1. Auth Test (Public Client)",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "grant_type",
+                  "value": "password",
+                  "type": "text",
+                  "uuid": "8c295711-6980-4ca6-9a44-32915a9f76bc"
+                },
+                {
+                  "key": "client_id",
+                  "value": "order-service",
+                  "type": "text",
+                  "uuid": "e5fd6fb2-6e64-42c8-904b-57e7680de2d9"
+                },
+                {
+                  "key": "username",
+                  "value": "testuser",
+                  "type": "text",
+                  "uuid": "09c4dd35-94a2-4d84-bcc2-c664f01cc42b"
+                },
+                {
+                  "key": "password",
+                  "value": "Test1234!",
+                  "type": "text",
+                  "uuid": "37b98a63-fdd8-4f99-8c3b-c619c6389861"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://localhost:8180/realms/net-microservices-mastery/protocol/openid-connect/token",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8180",
+              "path": [
+                "realms",
+                "net-microservices-mastery",
+                "protocol",
+                "openid-connect",
+                "token"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "1. Auth Test (Confidential Client)",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "grant_type",
+                  "value": "client_credentials",
+                  "type": "text",
+                  "uuid": "8c295711-6980-4ca6-9a44-32915a9f76bc"
+                },
+                {
+                  "key": "client_id",
+                  "value": "order-service",
+                  "type": "text",
+                  "uuid": "e5fd6fb2-6e64-42c8-904b-57e7680de2d9"
+                },
+                {
+                  "key": "client_secret",
+                  "value": "HfLB59i9bLkeDirv0jvANHPbTfzQ1ryj",
+                  "type": "text",
+                  "uuid": "066ec6b6-7371-40fb-b51e-e51a7ca1c584"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://localhost:8180/realms/net-microservices-mastery/protocol/openid-connect/token",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8180",
+              "path": [
+                "realms",
+                "net-microservices-mastery",
+                "protocol",
+                "openid-connect",
+                "token"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "2. Gateway Test (Order.Api)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJRc1pMemRnUFVPS1M5eHBVbVdIRFFFbjgxakVWMlZwbElXXzUyQkxPN0NRIn0.eyJleHAiOjE3OTAyNDc4NTYsImlhdCI6MTc5MDI0NzU1NiwianRpIjoiNTViMTA0YTYtZGU5Yi00YmY5LTkwODItMmUzMGZhM2YxOWMzIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MTgwL3JlYWxtcy9uZXQtbWljcm9zZXJ2aWNlcy1tYXN0ZXJ5IiwiYXVkIjpbImFwaS1nYXRld2F5IiwiYWNjb3VudCJdLCJzdWIiOiIyZWYwNzY3MC0yZjA0LTQ2NTgtYjc1MS05MTFiYzNmZTQ5OGQiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJvcmRlci1zZXJ2aWNlIiwiYWNyIjoiMSIsInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIiwiZGVmYXVsdC1yb2xlcy1uZXQtbWljcm9zZXJ2aWNlcy1tYXN0ZXJ5Il19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJwcm9maWxlIGVtYWlsIG9yZGVyLWFkbWluIiwiY2xpZW50SG9zdCI6IjE3Mi4xOS4wLjEiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsInByZWZlcnJlZF91c2VybmFtZSI6InNlcnZpY2UtYWNjb3VudC1vcmRlci1zZXJ2aWNlIiwiY2xpZW50QWRkcmVzcyI6IjE3Mi4xOS4wLjEiLCJjbGllbnRfaWQiOiJvcmRlci1zZXJ2aWNlIn0.Xix0iKDM2VAwuCtllC1kc6hULuoJoM8JiTZUiBw802xDU7OjyBS20t2nWyyMtIWm7uwvjfnAvyvnWiMFEoUn7utOyUkUyxsujvo0Etuc_MkoFrHswntAtRt9V5ed5ZvcQn9LHH1kgKG-ZSvhqYw1_M0NBTk5eZsbkqH211LfaKlcw4JkD048piUsOhW3idGOw_U0pDbWmqCja_ecEm89ILOhoyv-4Q9vfEvom_lphXWiB8BKnpFnapMB5_1K1-w_O-U-_dblyaTLqnvh9S5GKNhs3Ve6YEsKCzGyNhKv4eStxjb68GgsOgj4NxfxF-ovwI2h8xVWFjM_o0vKzSZhfQ",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/order-service",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "order-service"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "3. Resilency Test",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5001/test-resiliency",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5001",
+              "path": [
+                "test-resiliency"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "4. Load Balancing Test (Consul)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJRc1pMemRnUFVPS1M5eHBVbVdIRFFFbjgxakVWMlZwbElXXzUyQkxPN0NRIn0.eyJleHAiOjE3OTAyNDYxNTUsImlhdCI6MTc5MDI0NTg1NSwianRpIjoiMDY0YTNmNjItZDk4YS00Y2Q3LTgyZWYtMjE4OTdiYzcxNGRiIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MTgwL3JlYWxtcy9uZXQtbWljcm9zZXJ2aWNlcy1tYXN0ZXJ5IiwiYXVkIjpbImFwaS1nYXRld2F5IiwiYWNjb3VudCJdLCJzdWIiOiJkZjBkYzI0My1mY2IzLTQ1ZWUtOTA5NS04MTkxNDI4ODAzYWYiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJpbnZlbnRvcnktc2VydmljZSIsImFjciI6IjEiLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiIsImRlZmF1bHQtcm9sZXMtbmV0LW1pY3Jvc2VydmljZXMtbWFzdGVyeSJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoicHJvZmlsZSBlbWFpbCBpbnZlbnRvcnktYWRtaW4iLCJjbGllbnRIb3N0IjoiMTcyLjE5LjAuMSIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwicHJlZmVycmVkX3VzZXJuYW1lIjoic2VydmljZS1hY2NvdW50LWludmVudG9yeS1zZXJ2aWNlIiwiY2xpZW50QWRkcmVzcyI6IjE3Mi4xOS4wLjEiLCJjbGllbnRfaWQiOiJpbnZlbnRvcnktc2VydmljZSJ9.r7VvvZBZ3jmkkNdpwxuTL0g1ozD8bTaW24GiH4E9oboO4nLOD_w5pDcMMkT56MN86klIE5T-jj4bypy7B_5hrmOD8QIBw0g9DSjilI1xMvpobvdqlYcOJKO6c4vSTvECVRni4PQmtOL0b24n4oUDQ31IbPLy4qZHw1IZOEkZk6kkzj5BSVPQ0lGH29k3a9o1v5UmBLcak5ZzSlbCChhtzcOZ16p0ae6cg4LI1yWk8QX2RradGh8r-X94cGx0mqjH6qVAoB9YBE7AIcrV4Hyj46lKHrlyluH5bfIGH-nS3cNcWotYvvvfCyn2AEYsPSFSmy_je_Y5D-kYa-ajUerQKg",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/inventory-service",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "inventory-service"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "5.Rate Limitter Test",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJRc1pMemRnUFVPS1M5eHBVbVdIRFFFbjgxakVWMlZwbElXXzUyQkxPN0NRIn0.eyJleHAiOjE3ODg1MjE4MjMsImlhdCI6MTc4ODUyMTUyMywianRpIjoiMDE0MDQwZTItMDAwZS00MDRlLThkZTYtNjMyZjFhZTI3N2MxIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MTgwL3JlYWxtcy9uZXQtbWljcm9zZXJ2aWNlcy1tYXN0ZXJ5IiwiYXVkIjpbImFwaS1nYXRld2F5IiwiYWNjb3VudCJdLCJzdWIiOiIyZWYwNzY3MC0yZjA0LTQ2NTgtYjc1MS05MTFiYzNmZTQ5OGQiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJvcmRlci1zZXJ2aWNlIiwiYWNyIjoiMSIsInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIiwiZGVmYXVsdC1yb2xlcy1uZXQtbWljcm9zZXJ2aWNlcy1tYXN0ZXJ5Il19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJwcm9maWxlIGVtYWlsIG9yZGVyLWFkbWluIiwiY2xpZW50SG9zdCI6IjE3Mi4xOS4wLjEiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsInByZWZlcnJlZF91c2VybmFtZSI6InNlcnZpY2UtYWNjb3VudC1vcmRlci1zZXJ2aWNlIiwiY2xpZW50QWRkcmVzcyI6IjE3Mi4xOS4wLjEiLCJjbGllbnRfaWQiOiJvcmRlci1zZXJ2aWNlIn0.DyPlGBHxXKbmMjFHPeDpvWJFpdv0lXA1mctYrY8OGFNIb3I-yAGreOXccY3r7GkOetmIis4xwPXSql1pfgoeONpb7uYnUY6ocZHdCNHBteUu6PgarlMoMp4c0Qdp0Fr0Yc-5_T_5a6ewY3US-UNqNVJA3Z-2hChZO93J-_Z2gqkuY9QAIW4mDpWn-nZB21rcTVweCxNedOk8bLBvukaFlBjB-WxLMXKaYFHh4LlqbuMFxfcdKhdEFNpWRV2pdfX9dfNmLcut5uGC7BIiOga9A66b1YR4hGa6mx3lLcLTrfySaA-Rn6gxZTmnrk2eU9tAqmMUHYkjvaubWHRUtkddtw",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/orders/123",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "orders",
+                "123"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Module 3",
+      "item": [
+        {
+          "name": "1.Kafka Test",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"orderId\": \"{{$guid}}\", \"customerId\": \"musteri-123\", \"totalAmount\": 949.90}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5001/submit-order",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5001",
+              "path": [
+                "submit-order"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "2.PartitionKey Test",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"orderId\": \"{{$guid}}\",\"customerId\": \"musteri-123\", \"totalAmount\": 349.90,\"partitionKey\":\"2f10e416-bf81-41e2-8ca4-b7c2c9cf5de1\"}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5001/submit-order-with-partitionKey",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5001",
+              "path": [
+                "submit-order-with-partitionKey"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "3.DLQ Test",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"customerId\": \"FAIL\", \"totalAmount\": 100}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5001/submit-order",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5001",
+              "path": [
+                "submit-order"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "4.Command Test",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"orderId\": \"11111111-1111-1111-3333-111111111111\", \"customerId\": \"musteri-123\", \"totalAmount\": 349.90}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5001/submit-order",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5001",
+              "path": [
+                "submit-order"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Module 4",
+      "item": [
+        {
+          "name": "1.Outbox Test",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"orderId\": \"11111111-1111-1111-3333-111111111116\", \"customerId\": \"musteri-123\", \"totalAmount\": 349.90}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5001/submit-order-outbox",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5001",
+              "path": [
+                "submit-order-outbox"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "2.Outbox Messages",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5001/debug/outbox",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5001",
+              "path": [
+                "debug",
+                "outbox"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "3.Order Saga (Choreography Pattern)",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"customerId\": \"FAIL_PAYMENT\", \"totalAmount\": 250}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5001/submit-order-saga",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5001",
+              "path": [
+                "submit-order-saga"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "SUCCESS",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\"customerId\": \"musteri-123\", \"totalAmount\": 250}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:5001/submit-order-saga",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5001",
+                  "path": [
+                    "submit-order-saga"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "",
+              "header": [],
+              "cookie": [
+                {
+                  "expires": "Invalid Date",
+                  "domain": "",
+                  "path": ""
+                }
+              ],
+              "body": ""
+            },
+            {
+              "name": "FAIL_INVENTORY",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\"customerId\": \"FAIL_INVENTORY\", \"totalAmount\": 250}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:5001/submit-order-saga",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5001",
+                  "path": [
+                    "submit-order-saga"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "",
+              "header": [],
+              "cookie": [
+                {
+                  "expires": "Invalid Date",
+                  "domain": "",
+                  "path": ""
+                }
+              ],
+              "body": ""
+            },
+            {
+              "name": "FAIL_PAYMENT",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\"customerId\": \"FAIL_PAYMENT\", \"totalAmount\": 250}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:5001/submit-order-saga",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5001",
+                  "path": [
+                    "submit-order-saga"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "",
+              "header": [],
+              "cookie": [
+                {
+                  "expires": "Invalid Date",
+                  "domain": "",
+                  "path": ""
+                }
+              ],
+              "body": ""
+            },
+            {
+              "name": "Order Status",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\"customerId\": \"FAIL_PAYMENT\", \"totalAmount\": 250}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:5001/orders/e3907f71-6f18-4767-8ee9-402c13b47556",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5001",
+                  "path": [
+                    "orders",
+                    "e3907f71-6f18-4767-8ee9-402c13b47556"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "",
+              "header": [],
+              "cookie": [
+                {
+                  "expires": "Invalid Date",
+                  "domain": "",
+                  "path": ""
+                }
+              ],
+              "body": ""
+            }
+          ]
+        },
+        {
+          "name": "4.Order Saga Orchestrator",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5001/submit-order-saga-orchestrator",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5001",
+              "path": [
+                "submit-order-saga-orchestrator"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "SUCCESS",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\"orderId\": \"{{$guid}}\", \"customerId\": \"musteri-123\", \"totalAmount\": 349.90}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:5001/submit-order-saga-orchestrator",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5001",
+                  "path": [
+                    "submit-order-saga-orchestrator"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "",
+              "header": [],
+              "cookie": [
+                {
+                  "expires": "Invalid Date",
+                  "domain": "",
+                  "path": ""
+                }
+              ],
+              "body": ""
+            },
+            {
+              "name": "FAIL_INVENTORY",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\"orderId\": \"{{$guid}}\", \"customerId\": \"FAIL_INVENTORY\", \"totalAmount\": 349.90}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:5001/submit-order-saga-orchestrator",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5001",
+                  "path": [
+                    "submit-order-saga-orchestrator"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "",
+              "header": [],
+              "cookie": [
+                {
+                  "expires": "Invalid Date",
+                  "domain": "",
+                  "path": ""
+                }
+              ],
+              "body": ""
+            },
+            {
+              "name": "FAIL_PAYMENT",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\"orderId\": \"{{$guid}}\", \"customerId\": \"FAIL_PAYMENT\", \"totalAmount\": 349.90}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:5001/submit-order-saga-orchestrator",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5001",
+                  "path": [
+                    "submit-order-saga-orchestrator"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "",
+              "header": [],
+              "cookie": [
+                {
+                  "expires": "Invalid Date",
+                  "domain": "",
+                  "path": ""
+                }
+              ],
+              "body": ""
+            },
+            {
+              "name": "Order Status",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:5001/orders/e3907f71-6f18-4767-8ee9-402c13b47556",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5001",
+                  "path": [
+                    "orders",
+                    "e3907f71-6f18-4767-8ee9-402c13b47556"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "",
+              "header": [],
+              "cookie": [
+                {
+                  "expires": "Invalid Date",
+                  "domain": "",
+                  "path": ""
+                }
+              ],
+              "body": ""
+            }
+          ]
+        },
+        {
+          "name": "5.Order Saga State",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5004/debug/sagas/346d1080-0e65-4d6e-832d-ad709505d28f",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5004",
+              "path": [
+                "debug",
+                "sagas",
+                "346d1080-0e65-4d6e-832d-ad709505d28f"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Module 5",
+      "item": [
+        {
+          "name": "1.Idempotency",
+          "request": {
+            "method": "GET",
+            "header": []
+          },
+          "response": [
+            {
+              "name": "Payment.Api",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:5002/debug/test-idempotency",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5002",
+                  "path": [
+                    "debug",
+                    "test-idempotency"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "",
+              "header": [],
+              "cookie": [
+                {
+                  "expires": "Invalid Date",
+                  "domain": "",
+                  "path": ""
+                }
+              ],
+              "body": ""
+            },
+            {
+              "name": "Inventory.Api",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:5003/debug/test-idempotency",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5003",
+                  "path": [
+                    "debug",
+                    "test-idempotency"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": null,
+              "header": null,
+              "cookie": [],
+              "body": null
+            }
+          ]
+        },
+        {
+          "name": "2.Distributed Lock",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"orderId\": \"{{$guid}}\", \"customerId\": \"musteri-123\", \"totalAmount\": 949.90}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5001/submit-order-outbox",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5001",
+              "path": [
+                "submit-order-outbox"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "3.Consul KV Test",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5001/debug/config",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5001",
+              "path": [
+                "debug",
+                "config"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "4.Hangfire",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5010/hangfire",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5010",
+              "path": [
+                "hangfire"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Fire & Forget",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:5010/jobs/fire-and-forget",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5010",
+                  "path": [
+                    "jobs",
+                    "fire-and-forget"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "",
+              "header": [],
+              "cookie": [
+                {
+                  "expires": "Invalid Date",
+                  "domain": "",
+                  "path": ""
+                }
+              ],
+              "body": ""
+            },
+            {
+              "name": "Delayed",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:5010/jobs/delayed",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5010",
+                  "path": [
+                    "jobs",
+                    "delayed"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "",
+              "header": [],
+              "cookie": [
+                {
+                  "expires": "Invalid Date",
+                  "domain": "",
+                  "path": ""
+                }
+              ],
+              "body": ""
+            },
+            {
+              "name": "Continuations",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:5010/jobs/continuations",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5010",
+                  "path": [
+                    "jobs",
+                    "continuations"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "",
+              "header": [],
+              "cookie": [
+                {
+                  "expires": "Invalid Date",
+                  "domain": "",
+                  "path": ""
+                }
+              ],
+              "body": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
