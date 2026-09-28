@@ -1,11 +1,12 @@
-using System;
-using System.Threading;
-using System.Threading.Tasks;
 using BuildingBlocks.Messaging.Contracts.Events;
+using BuildingBlocks.Messaging.Idempotency;
 using MassTransit;
 using Microsoft.Extensions.Logging;
 using Polly;
 using Polly.Retry;
+using System;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace Inventory.Api.Consumers;
 
@@ -25,6 +26,7 @@ namespace Inventory.Api.Consumers;
 /// </summary>
 public class OrderCreatedConsumer(
     ILogger<OrderCreatedConsumer> logger,
+    IIdempotencyStore idempotencyStore,
     ITopicProducer<string, OrderCreatedDeadLetterMessage> deadLetterProducer) : IConsumer<OrderCreatedEvent>
 {
     private const int MaxRetryAttempts = 3;
@@ -48,9 +50,29 @@ public class OrderCreatedConsumer(
     public async Task Consume(ConsumeContext<OrderCreatedEvent> context)
     {
         var message = context.Message;
+    var messageId = context.MessageId;
 
-        try
-        {
+
+    if (messageId is not null && await idempotencyStore.HasBeenProcessedAsync(messageId.Value, context.CancellationToken))
+    {
+      Console.WriteLine($"⏭️ [Inventory.Api/Idempotency] Mesaj DAHA ÖNCE işlendi, stok TEKRAR REZERVE EDİLMEYECEK — MessageId={messageId}, OrderId={context.CorrelationId}");
+      logger.LogInformation(
+          "[Inventory.Api/Idempotency] Mesaj zaten işlenmiş, atlanıyor: MessageId={MessageId}, OrderId={OrderId}",
+          messageId, context.CorrelationId);
+      return; // Rezervasyon mantığı HİÇ ÇALIŞTIRILMAZ.
+    }
+    // 
+
+
+    // consumer mesajı aldını burada kanıtladık. ama aşağıda ProcessMessage 3 kez hata alırsa bunu aldığını kafka iletemedi.
+    // kafkaya iletilecek olan mesaj kaybolmasın diye mesajı dlq (dead letter queue) bir topic'e gönderiyoruz. dlq'ya gönderilen mesajlar daha sonra manuel olarak incelenip tekrar işlenebilir.
+    if (messageId is not null)
+    {
+      await idempotencyStore.MarkAsProcessedAsync(messageId.Value, nameof(ReserveInventoryCommandConsumer), context.CancellationToken);
+    }
+
+    try
+    {
             await _retryPipeline.ExecuteAsync(
                 static (msg, _) =>
                 {
@@ -76,6 +98,7 @@ public class OrderCreatedConsumer(
             throw new InvalidOperationException(
                 $"[Inventory.Api] Simüle edilmiş işleme hatası (test amaçlı) — OrderId={message.OrderId}");
         }
+
 
         // Konsolda gözden kaçmaması için belirgin bir işaretle de yazdırılır.
         Console.WriteLine($"🟣 [Inventory.Api] EVENT ALINDI — OrderCreatedEvent: OrderId={message.OrderId}, Tutar={message.TotalAmount} — stok rezervasyonu simüle ediliyor.");
