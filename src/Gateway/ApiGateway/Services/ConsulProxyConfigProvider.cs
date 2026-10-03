@@ -41,6 +41,7 @@ namespace ApiGateway.Services
 
     public IProxyConfig GetConfig() => _currentConfig;
 
+    // her 15sn de bir bu method hosted servis, ConsulConfigRefreshService üzerinden refreshlenir. 
     public async Task ReloadAsync(CancellationToken ct)
     {
       try
@@ -60,6 +61,7 @@ namespace ApiGateway.Services
           {
             RouteId = $"{serviceName}-route",
             ClusterId = serviceName,
+            AuthorizationPolicy = serviceName.StartsWith("order-service") ? "order-service" : null,
             Match = new RouteMatch { Path = $"/{serviceName}/{{**catch-all}}" },
             Transforms = new List<IReadOnlyDictionary<string, string>>
                         {
@@ -77,6 +79,7 @@ namespace ApiGateway.Services
             ClusterId = serviceName,
             LoadBalancingPolicy = "RoundRobin",
             Destinations = destinations
+          
           });
         }
 
