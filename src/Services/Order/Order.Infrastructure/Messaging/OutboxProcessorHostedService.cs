@@ -79,6 +79,7 @@ public class OutboxProcessorHostedService(
         // zaten tutuyorsa) bu turu TAMAMEN atlıyoruz — outbox'a hiç bakmadan
         // çıkıyoruz. Bir sonraki 5sn'lik pollde tekrar deneriz.
         using var @lock = await distributedLockService.TryAcquireAsync(LockResource, LockExpiry, ct);
+    // lock null dönerse kiliti benden başkası almış.
         if (@lock is null)
         {
             Console.WriteLine($"🔓 [Outbox][{_instanceId}] Kilit başka bir instance'ta — bu tur ATLANDI.");

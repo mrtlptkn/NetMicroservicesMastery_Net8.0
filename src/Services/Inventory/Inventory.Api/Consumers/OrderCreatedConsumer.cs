@@ -29,27 +29,27 @@ public class OrderCreatedConsumer(
     IIdempotencyStore idempotencyStore,
     ITopicProducer<string, OrderCreatedDeadLetterMessage> deadLetterProducer) : IConsumer<OrderCreatedEvent>
 {
-    private const int MaxRetryAttempts = 3;
+  private const int MaxRetryAttempts = 3;
 
-    private readonly ResiliencePipeline _retryPipeline = new ResiliencePipelineBuilder()
-        .AddRetry(new RetryStrategyOptions
-        {
-            MaxRetryAttempts = MaxRetryAttempts,
-            Delay = TimeSpan.FromSeconds(5),
-            BackoffType = DelayBackoffType.Constant,
-            OnRetry = args =>
-            {
-                logger.LogWarning(
-                    "[Inventory.Api] OrderCreatedEvent işlenemedi (deneme {Attempt}/{Max}): {Error}",
-                    args.AttemptNumber + 1, MaxRetryAttempts, args.Outcome.Exception?.Message);
-                return ValueTask.CompletedTask;
-            }
-        })
-        .Build();
+  private readonly ResiliencePipeline _retryPipeline = new ResiliencePipelineBuilder()
+      .AddRetry(new RetryStrategyOptions
+      {
+        MaxRetryAttempts = MaxRetryAttempts,
+        Delay = TimeSpan.FromSeconds(5),
+        BackoffType = DelayBackoffType.Constant,
+        OnRetry = args =>
+          {
+            logger.LogWarning(
+                  "[Inventory.Api] OrderCreatedEvent işlenemedi (deneme {Attempt}/{Max}): {Error}",
+                  args.AttemptNumber + 1, MaxRetryAttempts, args.Outcome.Exception?.Message);
+            return ValueTask.CompletedTask;
+          }
+      })
+      .Build();
 
-    public async Task Consume(ConsumeContext<OrderCreatedEvent> context)
-    {
-        var message = context.Message;
+  public async Task Consume(ConsumeContext<OrderCreatedEvent> context)
+  {
+    var message = context.Message;
     var messageId = context.MessageId;
 
 
@@ -66,62 +66,80 @@ public class OrderCreatedConsumer(
 
     // consumer mesajı aldını burada kanıtladık. ama aşağıda ProcessMessage 3 kez hata alırsa bunu aldığını kafka iletemedi.
     // kafkaya iletilecek olan mesaj kaybolmasın diye mesajı dlq (dead letter queue) bir topic'e gönderiyoruz. dlq'ya gönderilen mesajlar daha sonra manuel olarak incelenip tekrar işlenebilir.
-    if (messageId is not null)
-    {
-      await idempotencyStore.MarkAsProcessedAsync(messageId.Value, nameof(ReserveInventoryCommandConsumer), context.CancellationToken);
-    }
+
 
     try
     {
-            await _retryPipeline.ExecuteAsync(
-                static (msg, _) =>
-                {
-                    ProcessMessage(msg);
-                    return ValueTask.CompletedTask;
-                },
-                message,
-                context.CancellationToken);
-        }
-        catch (Exception ex)
-        {
-            await SendToDeadLetterAsync(message, ex);
-        }
-    }
 
-    /// <summary>Gerçek iş mantığı (henüz Modül 4'e kadar sadece simülasyon).</summary>
-    private static void ProcessMessage(OrderCreatedEvent message)
+      if (messageId is not null)
+      {
+
+
+        // Eğer mesaj kafka üzerindne bir daha reply edilirse yukarıda idempotencyStore.HasBeenProcessedAsync(messageId.Value, context.CancellationToken) kontrolüne girer hiç buralara gelemez, mesajı mükkerer işlemeyiz
+
+        await _retryPipeline.ExecuteAsync(
+         static (msg, _) =>
+         {
+           ProcessMessage(msg);
+           return ValueTask.CompletedTask;
+         },
+         message,
+         context.CancellationToken);
+        // eğer bu yukarıdaki kodu exception almadan işlerse
+
+        // aşağıdaki kod veri tabanına işlendi kaydı atar.
+        await idempotencyStore.MarkAsProcessedAsync(messageId.Value, nameof(ReserveInventoryCommandConsumer), context.CancellationToken);
+      }
+     
+
+      // ProcessMessage exception fırlatırsa mesajı işlendi olarak işaretlememiz lazım. 
+      
+
+
+    }
+    catch (Exception ex)
     {
-        // Modül 3 - DLQ TEST KANCASI: CustomerId "FAIL" olarak gönderilirse
-        // bilinçli olarak hata fırlatılır (3 deneme de başarısız olacaktır).
-        if (message.CustomerId == "FAIL")
-        {
-            throw new InvalidOperationException(
-                $"[Inventory.Api] Simüle edilmiş işleme hatası (test amaçlı) — OrderId={message.OrderId}");
-        }
-
-
-        // Konsolda gözden kaçmaması için belirgin bir işaretle de yazdırılır.
-        Console.WriteLine($"🟣 [Inventory.Api] EVENT ALINDI — OrderCreatedEvent: OrderId={message.OrderId}, Tutar={message.TotalAmount} — stok rezervasyonu simüle ediliyor.");
-
-        // TODO (Modül 4): Stok rezervasyonu iş mantığı burada eklenecek.
+      await SendToDeadLetterAsync(message, ex);
     }
+  }
 
-    private async Task SendToDeadLetterAsync(OrderCreatedEvent message, Exception exception)
+  /// <summary>Gerçek iş mantığı (henüz Modül 4'e kadar sadece simülasyon).</summary>
+  private static void ProcessMessage(OrderCreatedEvent message)
+  {
+
+  
+
+    // Modül 3 - DLQ TEST KANCASI: CustomerId "FAIL" olarak gönderilirse
+    // bilinçli olarak hata fırlatılır (3 deneme de başarısız olacaktır).
+    if (message.CustomerId == "FAIL")
     {
-        Console.WriteLine($"🔴 [Inventory.Api] DEAD LETTER — OrderCreatedEvent {MaxRetryAttempts + 1} denemenin TÜMÜNDE BAŞARISIZ oldu: OrderId={message.OrderId}, Hata={exception.Message}");
-        logger.LogError(
-            "[Inventory.Api] OrderCreatedEvent DLQ'ya yönlendirildi: OrderId={OrderId}, Hata={Reason}",
-            message.OrderId, exception.Message);
-
-        var dlqMessage = new OrderCreatedDeadLetterMessage(
-            EventId: Guid.NewGuid(),
-            OccurredOnUtc: DateTime.UtcNow,
-            OrderId: message.OrderId,
-            CustomerId: message.CustomerId,
-            TotalAmount: message.TotalAmount,
-            FailureReason: exception.Message,
-            ConsumerName: "Inventory.Api");
-
-        await deadLetterProducer.Produce(dlqMessage.PartitionKey, dlqMessage);
+      throw new InvalidOperationException(
+          $"[Inventory.Api] Simüle edilmiş işleme hatası (test amaçlı) — OrderId={message.OrderId}");
     }
+
+
+    // Konsolda gözden kaçmaması için belirgin bir işaretle de yazdırılır.
+    Console.WriteLine($"🟣 [Inventory.Api] EVENT ALINDI — OrderCreatedEvent: OrderId={message.OrderId}, Tutar={message.TotalAmount} — stok rezervasyonu simüle ediliyor.");
+
+    // TODO (Modül 4): Stok rezervasyonu iş mantığı burada eklenecek.
+  }
+
+  private async Task SendToDeadLetterAsync(OrderCreatedEvent message, Exception exception)
+  {
+    Console.WriteLine($"🔴 [Inventory.Api] DEAD LETTER — OrderCreatedEvent {MaxRetryAttempts + 1} denemenin TÜMÜNDE BAŞARISIZ oldu: OrderId={message.OrderId}, Hata={exception.Message}");
+    logger.LogError(
+        "[Inventory.Api] OrderCreatedEvent DLQ'ya yönlendirildi: OrderId={OrderId}, Hata={Reason}",
+        message.OrderId, exception.Message);
+
+    var dlqMessage = new OrderCreatedDeadLetterMessage(
+        EventId: Guid.NewGuid(),
+        OccurredOnUtc: DateTime.UtcNow,
+        OrderId: message.OrderId,
+        CustomerId: message.CustomerId,
+        TotalAmount: message.TotalAmount,
+        FailureReason: exception.Message,
+        ConsumerName: "Inventory.Api");
+
+    await deadLetterProducer.Produce(dlqMessage.PartitionKey, dlqMessage);
+  }
 }
